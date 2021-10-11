@@ -11,12 +11,14 @@
 </head>
 <body>
     <script>
+        let tCelc;
+
         do {
-            tCelc = Number(prompt('Введите температуру по Цельсию числом:' ));
+            tCelc = Number(prompt('Введите температуру по Цельсию числом:'));
         } while (isNaN(tCelc));
 
         let tPhar = (9 / 5) * tCelc + 32;
-        let tPharRounded = Number.parseFloat(tPhar).toFixed(1);
+        let tPharRounded = Number.parseFloat(tPhar.toString()).toFixed(1);
         let tTxt = 'Температура ' + tCelc + ' по Цельсию равна ' + tPharRounded + ' по Фаренгейту';
 
         alert(tTxt);
