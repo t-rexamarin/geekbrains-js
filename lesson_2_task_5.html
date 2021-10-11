@@ -1,0 +1,53 @@
+<!--Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation),-->
+<!--где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от-->
+<!--переданного значения операции (использовать switch) выполнить одну из арифметических-->
+<!--операций-->
+<!--(использовать функции из задания 4) и вернуть полученное значение.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function mathOperation(arg1, arg2, operation){
+            let sign = operation.toLowerCase();
+            let result;
+            let operations = ['сложение', 'вычитание', 'деление', 'умножение'];
+            if (!operations.includes(sign)){
+                let errTxt = `Недопустимая операция. Список доступный операций: ${operations}.`;
+                return errTxt;
+            }
+
+            switch (sign){
+                case 'сложение':
+                    result = arg1 + arg2;
+                    break;
+                case 'вычитание':
+                    result = arg1 - arg2;
+                    break;
+                case 'деление':
+                    result = arg1 / arg2;
+                    break;
+                case 'умножение':
+                    result = arg1 * arg2;
+                    break;
+            }
+
+            return result;
+        }
+
+        let signs = ['+', '-', '/', '*'];
+        // ceil ругление вверх
+        a = Math.ceil(Math.random() * 10) * (Math.round(Math.random()) ? 1 : -1);
+        b = Math.ceil(Math.random() * 10) * (Math.round(Math.random()) ? 1 : -1);
+        // floor округление вниз
+        let randomSign = signs[Math.floor(Math.random() * signs.length)];
+
+        console.log(a, b, randomSign);
+        console.log(mathOperation(a, b, randomSign));
+    </script>
+</body>
+</html>
