@@ -1,0 +1,46 @@
+<!--4 Реализовать основные 4 арифметические операции (+, -, /, *) в виде функций с двумя-->
+<!--параметрами. Т.е. например, функция для сложения должна принимать два числа, складывать их-->
+<!--и возвращать результат.-->
+<!--Обязательно использовать оператор return.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function calc(arg1, arg2, sign){
+            let result;
+
+            switch (sign){
+                case '+':
+                    result = arg1 + arg2;
+                    break;
+                case '-':
+                    result = arg1 - arg2;
+                    break;
+                case '/':
+                    result = arg1 / arg2;
+                    break;
+                case '*':
+                    result = arg1 * arg2;
+                    break;
+            }
+
+            return result;
+        }
+
+        let signs = ['+', '-', '/', '*'];
+        // ceil ругление вверх
+        a = Math.ceil(Math.random() * 10) * (Math.round(Math.random()) ? 1 : -1);
+        b = Math.ceil(Math.random() * 10) * (Math.round(Math.random()) ? 1 : -1);
+        // floor округление вниз
+        let randomSign = signs[Math.floor(Math.random() * signs.length)];
+
+        console.log(a, b, randomSign);
+        console.log(calc(a, b, randomSign));
+    </script>
+</body>
+</html>
