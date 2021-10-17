@@ -1,0 +1,29 @@
+<!--6 Нарисовать горку с помощью console.log (используя цикл for), как показано на рисунке,-->
+<!--только у вашей горки должно быть 20 рядов, а не 5:-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let row = 'x';
+        let mRow = ''
+        let mLength = 20;
+
+        // вариант 1
+        // for (let i = 0; i < mLength; i++){
+        //     mRow += row;
+        //     console.log(mRow);
+        // }
+
+        // вариант 2
+        for (let i = 1; i <= mLength; i++){
+            mRow = row.repeat(i);
+            console.log(mRow);
+        }
+    </script>
+</body>
+</html>

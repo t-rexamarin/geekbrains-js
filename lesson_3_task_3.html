@@ -1,0 +1,57 @@
+<!--3 Перед вами находится массив с продуктами, сегодня распродажа и вам нужно на каждый товар применить скидку-->
+<!--15%, можете использовать метод forEach https://mzl.la/1AOMMWX :-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        const products = [
+            {
+                id: 3,
+                price: 200,
+            },
+            {
+                id: 4,
+                price: 900,
+            },
+            {
+                id: 1,
+                price: 1000,
+            },
+        ];
+
+        // непонятно в какой реализации это должно быть
+        function changePriceDown(items, percent){
+            // вариант 1
+            // сначала я менял исходный массив
+            // но потом подумал, что константу то менять нельзя
+            // items.forEach(element => element['price'] = element['price'] * 1 - percent / 100);
+
+            // вариант 2
+            // просто вернуть измененные значения построчно
+            // items.forEach(element => console.log(element['price'] * 1 - percent / 100));
+
+            // вариант 3
+            // let productsWithDiscount = items.map(item => ({id: item.id, price: item.price * (1 - percent / 100)}));
+            // return productsWithDiscount;
+
+            // вариант 4
+            // вернуть новый массив
+            let productsWithDiscount = []
+
+            items.forEach(element => productsWithDiscount.push({
+                id: element['id'],
+                price: element['price'] * 1 - percent / 100}));
+
+            return productsWithDiscount;
+        }
+
+        // products.forEach(element => console.log(element['id'], element['price']));
+        console.log(changePriceDown(products, 15));
+    </script>
+</body>
+</html>
