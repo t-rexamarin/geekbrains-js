@@ -1,0 +1,67 @@
+<!--
+1 (это задание делайте по желанию) Написать функцию, преобразующую число в объект. Передавая на
+вход число в диапазоне [0, 999],
+мы должны получить на выходе объект, в котором в соответствующих свойствах описаны разряды числа:
+- единицы (в свойстве units)
+- десятки (в свойстве tens)
+- сотни (в свойстве hundereds)
+Например, для числа 45 мы должны получить следующий объект:
+{
+units: 5, //это единицы
+tens: 4, //это десятки
+hundreds: 0, //это сотни
+}
+Если число было передано вне [0, 999] диапазона, не целое число или вообще не число,
+необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        class IntAsObj {
+            constructor(units = null, tens = null, hundreds = null) {
+                this.units = units;
+                this.tens = tens;
+                this.hundreds = hundreds;
+            }
+        }
+
+        function intToObj(integer) {
+            const minLimit = 0;
+            const maxLimit = 999;
+            let obj = new IntAsObj();
+
+            if (!Number.isInteger(integer)) {
+                let errTxt = `Переданное значение - ${integer} не является числом.`
+                console.log(errTxt);
+                return obj;
+            }
+
+            if (integer < minLimit || integer > maxLimit) {
+                let errTxt = `Переданное значение - ${integer} вне допустимого диапазона ${minLimit} - ${maxLimit}.`
+                console.log(errTxt);
+                return obj;
+            }
+
+            obj.units = integer % 10;
+            integer = Math.floor(integer / 10);
+            obj.tens = integer % 10;
+            integer = Math.floor(integer / 10);
+            obj.hundreds = integer % 10;
+
+            // был еще такой вариант, но мне посоветовали не привязываться к жесткой структуре
+            // for (let key in obj) {
+            //     obj[key] = integer % 10;
+            //     integer = Math.floor(integer / 10);
+            // }
+
+            return obj;
+        }
+    </script>
+</body>
+</html>
